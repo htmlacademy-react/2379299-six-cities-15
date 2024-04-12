@@ -1,4 +1,4 @@
-import { Location, City, HousingType } from '../types/offer';
+import { Location, City, HousingType } from './offer';
 
 export type Host = {
   name: string;

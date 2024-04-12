@@ -8,7 +8,7 @@ import { AuthData } from '../types/auth-data';
 import { UserData } from '../types/user-data';
 import { dropToken, saveToken } from '../services/token';
 import { store } from '.';
-import { ExtendedOffer } from '../types/extended offer';
+import { ExtendedOffer } from '../types/extended-offer';
 import { UserReview } from '../types/user-review';
 import { Review } from '../types/review';
 import { StatusFavorite } from '../types/status-favorites';
@@ -122,7 +122,7 @@ export const checkAuthAction = createAsyncThunk<UserData, undefined, {
 
 );
 
-export const loginAction = createAsyncThunk<void, AuthData, {
+export const loginAction = createAsyncThunk<UserData, AuthData, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
@@ -131,6 +131,7 @@ export const loginAction = createAsyncThunk<void, AuthData, {
   async ({login: email, password}, { extra: api}) => {
     const {data} = await api.post<UserData>(APIRoute.Login, {email, password});
     saveToken(data.token);
+    return data;
   },
 );
 

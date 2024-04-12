@@ -10,7 +10,7 @@ import Layout from '../layout';
 import { useAppDispatch, useAppSelector } from '../../hock/index.ts';
 import LoadingScreen from '../../pages/loading-screen/loading-screen.tsx';
 import { useEffect } from 'react';
-import { fetchFavoritesOffersAction } from '../../store/api-actions.ts';
+import { fetchFavoritesOffersAction, fetchOffersAction } from '../../store/api-actions.ts';
 
 function App (): JSX.Element {
 
@@ -19,11 +19,12 @@ function App (): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    dispatch(fetchOffersAction());
     if (authorizationStatus === AuthorizationStatus.Auth) {
       dispatch(fetchFavoritesOffersAction());
+
     }
   }, [dispatch, authorizationStatus]);
-
 
   if (authorizationStatus === AuthorizationStatus.Unknown || isOffersDataLoading) {
     return (

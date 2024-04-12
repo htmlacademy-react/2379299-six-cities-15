@@ -27,8 +27,10 @@ function ListComponents ({setSort, activeOfferSort}: Props): JSX.Element {
   const handleMouseFilter = () =>{
     setFilter(!isFilter);
   };
+
+  const hasSortedOffers = sortedOffers.length > 0;
   return(
-    (sortedOffers.length > 0) ? (
+    hasSortedOffers ? (
       <div className="cities">
         <div className="cities__places-container container">
           <section className="cities__places places">

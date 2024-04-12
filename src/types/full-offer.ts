@@ -1,6 +1,6 @@
 
 import { Location, City, HousingType } from '../types/offer';
-import { Host } from './extended offer';
+import { Host } from './extended-offer';
 
 export type FullOffer = {
   id: string;

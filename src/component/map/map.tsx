@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { Offer } from '../../types/offer';
 import useMap from '../map/use-map';
 import { City } from '../../types/offer';
-import { ExtendedOffer } from '../../types/extended offer';
+import { ExtendedOffer } from '../../types/extended-offer';
 import { URL_MARKER_CURRENT, URL_MARKER_DEFAULT } from '../../const';
 
 type Props = {
